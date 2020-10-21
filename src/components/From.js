@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({inputText, setInputText, inputDate, setInputDate, inputTime, setInputTime, todos, setTodos, setStatus}) => {
+const Form = ({inputText, setInputText, inputDate, setInputDate, inputTime, setInputTime, todos, setTodos, setStatus, setOrder}) => {
     const inputDateHandler = (e) => {
         console.log(e.target.value);
         setInputDate(e.target.value);
@@ -24,6 +24,9 @@ const Form = ({inputText, setInputText, inputDate, setInputDate, inputTime, setI
     const statusHandler = (e) => {
          setStatus(e.target.value);
     };
+    const orderHandler = (e) => {
+        setOrder(e.target.value);
+   };
     return(
         <form>
             
@@ -55,6 +58,12 @@ const Form = ({inputText, setInputText, inputDate, setInputDate, inputTime, setI
                     <option value="all">All</option>
                     <option value="completed">Completed</option>
                     <option value="uncompleted">Uncompleted</option>
+                </select>
+            </div>
+            <div className="select">
+                <select onChange={orderHandler} name="todos" className="filter-todo">
+                    <option value="Recent">Recent</option>
+                    <option value="Earlier">Earlier</option>
                 </select>
             </div>
         </form>

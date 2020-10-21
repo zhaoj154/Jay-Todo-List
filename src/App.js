@@ -10,7 +10,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
-  const [order, setOrder] = useState("due descending");
+  const [order, setOrder] = useState("Recent");
 
   useEffect(() => {
     getTodos();
@@ -63,9 +63,11 @@ function App() {
         setInputDate={setInputDate}
         setInputTime={setInputTime}
         setStatus = {setStatus}
+        setOrder={setOrder}
       />
       <TodoList 
         setTodos={setTodos}
+        order={order}
         todos={todos} 
         filteredTodos = {filteredTodos}
       />
