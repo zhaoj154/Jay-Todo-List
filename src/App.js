@@ -5,9 +5,12 @@ import TodoList from './components/TodoList';
 
 function App() {
   const [inputText, setInputText] = useState("");
+  const [inputDate, setInputDate] = useState("");
+  const [inputTime, setInputTime] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [order, setOrder] = useState("due descending");
 
   useEffect(() => {
     getTodos();
@@ -51,10 +54,14 @@ function App() {
         <h1>Jay's Todo List</h1> 
       </header>
       <Form 
-        inputText= {inputText} 
+        inputText={inputText} 
+        inputDate={inputDate} 
+        inputTime={inputTime}
         todos={todos} 
         setTodos={setTodos} 
         setInputText={setInputText}
+        setInputDate={setInputDate}
+        setInputTime={setInputTime}
         setStatus = {setStatus}
       />
       <TodoList 

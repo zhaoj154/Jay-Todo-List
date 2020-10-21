@@ -1,6 +1,14 @@
 import React from "react";
 
-const Form = ({inputText, setInputText, todos, setTodos, setStatus}) => {
+const Form = ({inputText, setInputText, inputDate, setInputDate, inputTime, setInputTime, todos, setTodos, setStatus}) => {
+    const inputDateHandler = (e) => {
+        console.log(e.target.value);
+        setInputDate(e.target.value);
+    }; 
+    const inputTimeHandler = (e) => {
+        console.log(e.target.value);
+        setInputTime(e.target.value);
+    }; 
     const inputTextHandler = (e) => {
         console.log(e.target.value);
         setInputText(e.target.value);
@@ -9,7 +17,7 @@ const Form = ({inputText, setInputText, todos, setTodos, setStatus}) => {
         e.preventDefault();
         setTodos([
             ...todos, 
-            {text: inputText, completed: false, id: Math.random()*1000},
+            {text: inputText, date: inputDate, time: inputTime, completed: false, id: Math.random()*1000},
         ]);
         setInputText("");
     };
@@ -18,6 +26,21 @@ const Form = ({inputText, setInputText, todos, setTodos, setStatus}) => {
     };
     return(
         <form>
+            
+            <div className = "todo-container">
+                <input 
+                    value={inputDate}
+                    onChange={inputDateHandler} 
+                    type="date" 
+                    className="todo-input" 
+                />
+                <input 
+                    value={inputTime}
+                    onChange={inputTimeHandler} 
+                    type="time" 
+                    className="todo-box" 
+                />
+            </div>
             <input 
                 value={inputText}
                 onChange={inputTextHandler} 

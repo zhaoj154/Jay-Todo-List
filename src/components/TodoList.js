@@ -12,6 +12,8 @@ const TodoList = ({ todos, setTodos, filteredTodos }) =>{
                         key={todo.id} 
                         todo={todo}
                         text={todo.text}
+                        date={todo.date}
+                        time={todo.time}
                     />
                 ))}
             </ul>
